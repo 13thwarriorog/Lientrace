@@ -1,34 +1,49 @@
-<!<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>LienTrace | Public Filing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LienTrace | Case System</title>
 
 <style>
 body {
     font-family: Arial, sans-serif;
     background: #0b0f14;
     color: #e6edf3;
-    max-width: 900px;
+    max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 24px;
+    line-height: 1.6;
 }
 
-h1 {
+h1, h2, h3 {
     color: #58a6ff;
 }
 
-h2 {
+a {
     color: #58a6ff;
-    margin-top: 0;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
 
-.panel {
+.hero, .panel, .case-card {
     background: #111827;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
     border: 1px solid #1f2937;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.hero {
+    background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 16px;
 }
 
 .label {
@@ -36,92 +51,249 @@ h2 {
     font-weight: bold;
 }
 
-.status {
+.status-open {
+    color: #f59e0b;
+    font-weight: bold;
+}
+.status-review {
     color: #3fb950;
     font-weight: bold;
 }
+.status-pending {
+    color: #58a6ff;
+    font-weight: bold;
+}
+.status-archived {
+    color: #8b949e;
+    font-weight: bold;
+}
 
-.warning {
+.tag {
+    display: inline-block;
+    font-size: 0.85em;
+    padding: 4px 8px;
+    border-radius: 999px;
+    margin: 3px 6px 3px 0;
+    border: 1px solid #30363d;
+    background: #161b22;
+}
+
+.observed {
+    color: #e6edf3;
+}
+.corroborated {
+    color: #3fb950;
+}
+.inferred {
+    color: #f59e0b;
+}
+.pending {
+    color: #58a6ff;
+}
+.disputed {
     color: #f85149;
 }
 
-.case {
-    border-left: 3px solid #58a6ff;
-    padding-left: 10px;
-    margin-top: 10px;
+.case-card h3 {
+    margin-top: 0;
 }
 
-ul {
-    padding-left: 20px;
+.case-meta {
+    margin: 10px 0;
+}
+
+.case-links a {
+    display: inline-block;
+    margin-right: 12px;
+    margin-top: 8px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #30363d;
+    margin: 18px 0;
+}
+
+.small {
+    font-size: 0.92em;
+    color: #8b949e;
+}
+
+.notice {
+    border-left: 4px solid #f59e0b;
+}
+
+.footer {
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+    font-size: 0.92em;
 }
 </style>
 </head>
-
 <body>
 
-<h1>🔗 LienTrace Public Filing</h1>
-
-<div class="panel">
-<div><span class="label">Version:</span> 1.1</div>
-<div><span class="label">Status:</span> <span class="status">Public Notice</span></div>
-<div><span class="label">System:</span> LienCoin Accountability Framework</div>
-<div><span class="label">Timestamp:</span> 2026-03-19T07:10:35.876Z</div>
+<div class="hero">
+    <h1>🔗 LienTrace Case System</h1>
+    <p><strong>Version:</strong> 2.0</p>
+    <p><strong>Status:</strong> Public Notice / Active Registry</p>
+    <p><strong>System:</strong> LienCoin Accountability Framework</p>
+    <p><strong>Updated:</strong> <span id="timestamp"></span></p>
+    <p class="small">
+        LienTrace is a public-facing accountability and evidence registry for structured case tracking,
+        notice, and unresolved obligation mapping.
+    </p>
 </div>
 
 <div class="panel">
-<h2>📜 Statement of Purpose</h2>
-<p>
-This filing establishes a transparent, publicly accessible record of observed blockchain activity,
-associated risks, and unresolved accountability concerns.
-</p>
+    <h2>📜 Statement of Purpose</h2>
+    <p>
+        This registry establishes a transparent, publicly accessible record of observed blockchain activity,
+        associated risks, and unresolved accountability concerns. Cases may include direct on-chain observations,
+        corroborated findings, technical inferences, pending disclosures, and public notice entries.
+    </p>
 </div>
 
 <div class="panel">
-<h2>🧠 System Capabilities</h2>
-<ul>
-<li>Public accounting of claims</li>
-<li>Evidence-linked accountability</li>
-<li>Disclosure tracking</li>
-<li>Settlement lifecycle recording</li>
-<li>Public protection registry</li>
-</ul>
+    <h2>🧠 System Capabilities</h2>
+    <ul>
+        <li>Public accounting of claims</li>
+        <li>Evidence-linked accountability</li>
+        <li>Disclosure tracking</li>
+        <li>Settlement lifecycle recording</li>
+        <li>Public protection registry</li>
+        <li>Multi-case indexing</li>
+        <li>Status-based evidence review</li>
+    </ul>
 </div>
 
-<div class="panel warning">
-<h2>⚠️ Public Notice</h2>
-<p>
-Interaction with referenced assets should be conducted with caution pending independent verification.
-</p>
-</div>
-
-<div class="panel">
-<h2>📁 Active Case</h2>
-
-<div class="case">
-<strong>Case ID:</strong> LT-0001<br>
-<strong>Subject:</strong> 1BTC / Infinity Vault<br>
-<strong>Status:</strong> Under Review<br>
-<strong>Chain:</strong> BSC<br>
-
-<p>
-Observed anomalies in liquidity behavior, contract interactions, and value representation.
-</p>
-</div>
-
+<div class="panel notice">
+    <h2>⚠️ Public Notice</h2>
+    <p>
+        Interaction with referenced assets, contracts, counterparties, or wallets should be conducted with caution
+        pending independent verification and full disclosure.
+    </p>
 </div>
 
 <div class="panel">
-<h2>📄 Licensing</h2>
-<p><strong>Code:</strong> MIT License<br>
-<strong>Content:</strong> CC BY 4.0</p>
+    <h2>📁 Active Cases</h2>
+
+    <div class="grid">
+
+        <div class="case-card">
+            <h3>LT-0001 · 1BTC / Infinity Vault</h3>
+            <div class="case-meta">
+                <div><span class="label">Status:</span> <span class="status-review">Under Review</span></div>
+                <div><span class="label">Chain:</span> BSC</div>
+                <div><span class="label">Primary Contract:</span> 0x231749a207b0DeBB3d65D84c2D063320eB236EE0</div>
+                <div><span class="label">Related Wallet:</span> 0x6Ad7b553D3622C7D1cCfe702E5a8BC7E22d9f848</div>
+            </div>
+
+            <p>
+                Observed anomalies in liquidity behavior, contract interactions, swap patterns,
+                and value representation associated with 1BTC-related activity.
+            </p>
+
+            <div>
+                <span class="tag observed">Observed</span>
+                <span class="tag corroborated">Corroborated</span>
+                <span class="tag inferred">Inferred</span>
+                <span class="tag pending">Pending Disclosure</span>
+            </div>
+
+            <div class="case-links">
+                <a href="https://bscscan.com/address/0x231749a207b0DeBB3d65D84c2D063320eB236EE0" target="_blank">View Contract</a>
+                <a href="https://bscscan.com/address/0x6Ad7b553D3622C7D1cCfe702E5a8BC7E22d9f848" target="_blank">View Wallet</a>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h3>LT-0002 · Placeholder Case</h3>
+            <div class="case-meta">
+                <div><span class="label">Status:</span> <span class="status-pending">Pending Intake</span></div>
+                <div><span class="label">Chain:</span> TBD</div>
+                <div><span class="label">Primary Contract:</span> Pending</div>
+                <div><span class="label">Related Wallet:</span> Pending</div>
+            </div>
+
+            <p>
+                Reserved for next documented case. Replace this panel with the next investigation entry.
+            </p>
+
+            <div>
+                <span class="tag pending">Pending</span>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h3>LT-0003 · Placeholder Case</h3>
+            <div class="case-meta">
+                <div><span class="label">Status:</span> <span class="status-pending">Pending Intake</span></div>
+                <div><span class="label">Chain:</span> TBD</div>
+                <div><span class="label">Primary Contract:</span> Pending</div>
+                <div><span class="label">Related Wallet:</span> Pending</div>
+            </div>
+
+            <p>
+                Reserved for additional case expansion, registry entries, or evidence-linked filing.
+            </p>
+
+            <div>
+                <span class="tag pending">Pending</span>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <div class="panel">
-<h2>⚖️ Clarification</h2>
-<p>
-This system records claims and evidence. It does not constitute legal judgment.
-</p>
+    <h2>📊 Evidence Classification</h2>
+    <p>
+        Each case may use one or more of the following evidence states:
+    </p>
+    <ul>
+        <li><strong>Observed</strong> → Direct on-chain data or captured system output</li>
+        <li><strong>Corroborated</strong> → Supported by multiple independent references</li>
+        <li><strong>Inferred</strong> → Technical conclusion based on observed facts</li>
+        <li><strong>Pending Disclosure</strong> → Awaiting records, statements, or responses</li>
+        <li><strong>Disputed</strong> → Counterparty response or contradiction noted</li>
+    </ul>
 </div>
+
+<div class="panel">
+    <h2>🧾 Filing Workflow</h2>
+    <ol>
+        <li>Open case</li>
+        <li>Attach observable evidence</li>
+        <li>Classify findings</li>
+        <li>Issue public notice</li>
+        <li>Record rebuttal, disclosure, or silence</li>
+        <li>Mark resolved, unresolved, or archived</li>
+    </ol>
+</div>
+
+<div class="panel">
+    <h2>📄 Licensing</h2>
+    <p><strong>Code:</strong> MIT License<br>
+    <strong>Content:</strong> CC BY 4.0</p>
+</div>
+
+<div class="panel">
+    <h2>⚖️ Clarification</h2>
+    <p>
+        This system records claims, evidence references, and structured public notice.
+        It does not constitute legal judgment or legal advice.
+    </p>
+</div>
+
+<div class="footer">
+    © 2026 LienCoin Genesis Trust · LienTrace Public Registry
+</div>
+
+<script>
+document.getElementById("timestamp").textContent = new Date().toISOString();
+</script>
 
 </body>
 </html>
