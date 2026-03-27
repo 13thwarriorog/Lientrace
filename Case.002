@@ -1,1 +1,89 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LT-0002 · Temporal Integrity Review</title>
+<style>
+body {font-family: Arial; background:#0b0f14; color:#e6edf3; padding:20px;}
+h1,h2 {color:#58a6ff;}
+.panel {background:#111827; border:1px solid #1f2937; padding:15px; margin-bottom:15px; border-radius:10px;}
+.tag {display:inline-block; padding:4px 8px; margin:4px; border:1px solid #1f2937; border-radius:6px;}
+</style>
+</head>
+
+<body>
+
+<h1>🧾 LT-0002 · Temporal Integrity Review</h1>
+
+<div class="panel">
+<h2>Status</h2>
+<p>Under Review</p>
+<p><strong>Scope:</strong> Cross-domain (corporate filings + blockchain sequencing)</p>
+</div>
+
+<div class="panel">
+<h2>📜 Summary</h2>
+<p>
+This case examines potential inconsistencies in temporal ordering across both
+traditional (corporate/legal) and digital (blockchain) systems. Observations suggest
+possible discrepancies between recorded dates, perceived sequencing, and actual event order.
+</p>
+</div>
+
+<div class="panel">
+<h2>🔍 Observed</h2>
+<ul>
+<li>Encountered corporate entity references raising questions about authorization, naming, or timing.</li>
+<li>Entity name noted: <strong>Safespending Services Inc.</strong></li>
+<li>Observed blockchain transaction behavior that appeared out of expected sequence.</li>
+<li>Indexing or presentation layer inconsistencies may affect perceived ordering.</li>
+</ul>
+<span class="tag">Observed</span>
+</div>
+
+<div class="panel">
+<h2>🧠 Inferred</h2>
+<ul>
+<li>Possible backdating or misalignment of corporate filing records.</li>
+<li>Possible use of numbered or alternate entities prior to full disclosure.</li>
+<li>Possible discrepancy between blockchain display order and actual execution order.</li>
+</ul>
+<span class="tag">Inferred</span>
+</div>
+
+<div class="panel">
+<h2>⚠️ Unverified Leads</h2>
+<ul>
+<li>Whether entity structures were used to obscure timing or authorization.</li>
+<li>Whether blockchain indexing or contract logic altered perceived transaction sequence.</li>
+<li>Whether presentation layers differ materially from underlying data.</li>
+</ul>
+<span class="tag">Pending</span>
+</div>
+
+<div class="panel">
+<h2>❓ Key Questions</h2>
+<ul>
+<li>What is the verified chronological order of relevant corporate filings?</li>
+<li>Are there discrepancies between registry records and archived versions?</li>
+<li>Do blockchain transaction timestamps align with execution order?</li>
+<li>Are proxy contracts or internal calls affecting perceived sequencing?</li>
+</ul>
+</div>
+
+<div class="panel">
+<h2>📊 Evidence Status</h2>
+<p>Observed / Inferred / Pending Disclosure</p>
+</div>
+
+<div class="panel">
+<h2>📡 Public Notice</h2>
+<p>
+This case records observations and investigative leads related to temporal integrity.
+All statements should be independently verified. No conclusions are asserted as fact at this stage.
+</p>
+</div>
+
+</body>
+</html>
