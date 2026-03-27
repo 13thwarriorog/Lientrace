@@ -1,428 +1,164 @@
+<!-- LienTrace v3 — Testimony + Proof-of-Meaning Integrated -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LienTrace | Case System</title>
+<title>LienTrace | Public Accountability Registry</title>
 
 <style>
 :root{
   --bg1:#0b0f14;
   --bg2:#0f172a;
   --panel:#111827;
-  --panel-2:#161b22;
   --border:#1f2937;
   --text:#e6edf3;
   --muted:#8b949e;
   --blue:#58a6ff;
   --green:#3fb950;
   --amber:#f59e0b;
-  --red:#f85149;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background:
-    radial-gradient(1200px 600px at 10% -10%, #122042 0%, transparent 40%),
-    linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
   color: var(--text);
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
-  padding: 24px;
-  line-height: 1.6;
+  padding: 20px;
 }
 
-h1, h2, h3 {
-  color: var(--blue);
-  text-shadow: 0 0 12px rgba(88,166,255,0.15);
-  margin-top: 0;
-}
+h1,h2 { color: var(--blue); }
 
-a {
-  color: var(--blue);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.hero, .panel, .case-card {
-  background: linear-gradient(180deg, var(--panel) 0%, #0f1626 100%);
+.panel {
+  background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 18px;
   margin-bottom: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-.hero {
-  border-left: 4px solid var(--blue);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 16px;
-}
-
-.case-card:hover {
-  transform: translateY(-2px);
-  transition: 0.2s ease;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-}
-
-.label {
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.status-review {
-  color: var(--green);
-  font-weight: 700;
-}
-
-.status-pending {
-  color: var(--blue);
-  font-weight: 700;
-}
-
-.tag {
-  display: inline-block;
-  font-size: 0.82em;
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin: 4px 6px 4px 0;
-  border: 1px solid #2b3442;
-  background: var(--panel-2);
-}
-
-.observed { color: var(--text); }
-.corroborated { color: var(--green); }
-.inferred { color: var(--amber); }
-.pending { color: var(--blue); }
-
-.case-meta {
-  margin: 10px 0;
-}
-
-.case-links a {
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 8px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--panel-2);
-}
-
-.case-links a:hover {
-  background: #1a2335;
-}
-
-.notice {
-  border-left: 4px solid var(--amber);
-}
-
-.small {
-  font-size: 0.92em;
-  color: var(--muted);
-}
-
-hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 16px 0;
-}
-
-ol, ul {
-  padding-left: 22px;
 }
 
 textarea {
-  width: 100%;
-  min-height: 140px;
-  background: #0b0f14;
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
-  box-sizing: border-box;
-  font: inherit;
-}
-
-button, .submit-link {
-  display: inline-block;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-weight: 700;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
+  width:100%;
+  min-height:120px;
+  background:#0b0f14;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px;
 }
 
 button {
-  background: var(--blue);
-  color: #000;
-}
-
-.submit-link {
-  background: var(--green);
-  color: #000;
+  margin-top:10px;
+  padding:10px 15px;
+  background:var(--blue);
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
 }
 
 .output {
-  white-space: pre-wrap;
-  margin-top: 15px;
-  background: #0b0f14;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  margin-top:10px;
+  padding:10px;
+  background:#0b0f14;
+  border:1px solid var(--border);
+  border-radius:8px;
+  white-space:pre-wrap;
 }
 
-.footer {
-  margin-top: 30px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.92em;
+.tag {
+  display:inline-block;
+  padding:4px 8px;
+  margin:4px;
+  border:1px solid var(--border);
+  border-radius:6px;
 }
+
 </style>
 </head>
+
 <body>
 
-<div class="hero">
-  <h1>🔗 LienTrace Case System</h1>
-  <p><strong>Version:</strong> 2.3</p>
-  <p><strong>Status:</strong> Public Notice / Active Registry</p>
-  <p><strong>System:</strong> LienCoin Accountability Framework</p>
-  <p><strong>Updated:</strong> <span id="timestamp"></span></p>
-  <p class="small">
-    LienTrace is a public-facing accountability and evidence registry for structured case tracking,
-    notice, unresolved obligation mapping, and guided human statement intake.
-  </p>
+<h1>🔗 LienTrace</h1>
+<p>Public Accountability Registry • LienCoin Framework</p>
+
+<div class="panel">
+<h2>📜 Purpose</h2>
+<p>
+LienTrace establishes a public, time-stamped registry for claims, testimony,
+evidence, and asset interpretation across digital systems.
+</p>
 </div>
 
 <div class="panel">
-  <h2>📜 Statement of Purpose</h2>
-  <p>
-    This registry establishes a transparent, publicly accessible record of observed blockchain activity,
-    associated risks, and unresolved accountability concerns. Cases may include direct on-chain observations,
-    corroborated findings, technical inferences, pending disclosures, and public notice entries.
-  </p>
+<h2>🧠 Human Testimony Layer</h2>
+<p>
+Testimony is treated as a structured, time-stamped account of observed experience.
+It may be reviewed, challenged, or corroborated.
+</p>
 </div>
 
 <div class="panel">
-  <h2>🧠 System Capabilities</h2>
-  <ul>
-    <li>Public accounting of claims</li>
-    <li>Evidence-linked accountability</li>
-    <li>Disclosure tracking</li>
-    <li>Settlement lifecycle recording</li>
-    <li>Public protection registry</li>
-    <li>Multi-case indexing</li>
-    <li>Status-based evidence review</li>
-    <li>Guided human statement drafting</li>
-  </ul>
+<h2>🔍 Proof-of-Meaning Layer</h2>
+<p>
+Assets may be ambiguous or misrepresented. This layer enables structured human interpretation
+of what an asset appears to be, based on observed behavior and evidence.
+</p>
+
+<div>
+<span class="tag">Observed</span>
+<span class="tag">Corroborated</span>
+<span class="tag">Inferred</span>
+<span class="tag">Disputed</span>
 </div>
 
-<div class="panel notice">
-  <h2>⚠️ Public Notice</h2>
-  <p>
-    Interaction with referenced assets, contracts, counterparties, or wallets should be conducted with caution
-    pending independent verification and full disclosure.
-  </p>
-</div>
+<p style="margin-top:10px;">
+Example:
+<br>
+“Token appears to function as a proxy with restricted liquidity and possible synthetic backing.”
+</p>
 
-<div class="panel">
-  <h2>🧾 Start Guided Statement</h2>
-  <p>
-    Describe what happened in plain language. LienTrace will convert your description into a structured statement
-    you can review and submit to the registry.
-  </p>
-  <p class="small">
-    Flow: write → generate → copy → submit.
-  </p>
-
-  <textarea id="userInput" placeholder="Example: I received a token, tried to swap it, saw thousands of trades, a possible 85% tax, and only a proxy contract was visible. I could not tell which contract was authentic or whether the asset was freely tradable."></textarea>
-
-  <div style="margin-top:12px;">
-    <button onclick="generateStatement()">Generate Structured Statement</button>
-    <a class="submit-link" href="https://github.com/13thwarriorog/Lientrace/issues/new/choose" target="_blank">Submit to Registry</a>
-  </div>
-
-  <div id="output" class="output">Your structured statement will appear here.</div>
 </div>
 
 <div class="panel">
-  <h2>📁 Active Cases</h2>
+<h2>🧾 Generate Testimony</h2>
 
-  <div class="grid">
+<textarea id="input" placeholder="Describe what happened..."></textarea>
 
-    <div class="case-card">
-      <h3><a href="cases/lt-0001.html">LT-0001 · 1BTC / Infinity Vault</a></h3>
-      <div class="case-meta">
-        <div><span class="label">Status:</span> <span class="status-review">Under Review</span></div>
-        <div><span class="label">Chain:</span> BSC</div>
-        <div><span class="label">Primary Contract:</span> 0x231749a207b0DeBB3d65D84c2D063320eB236EE0</div>
-        <div><span class="label">Related Wallet:</span> 0x6Ad7b553D3622C7D1cCfe702E5a8BC7E22d9f848</div>
-      </div>
+<button onclick="gen()">Generate</button>
 
-      <p>
-        Observed anomalies in liquidity behavior, contract interactions, swap patterns,
-        and value representation associated with 1BTC-related activity.
-      </p>
-
-      <div>
-        <span class="tag observed">Observed</span>
-        <span class="tag corroborated">Corroborated</span>
-        <span class="tag inferred">Inferred</span>
-        <span class="tag pending">Pending Disclosure</span>
-      </div>
-
-      <div class="case-links">
-        <a href="https://bscscan.com/address/0x231749a207b0DeBB3d65D84c2D063320eB236EE0" target="_blank">View Contract</a>
-        <a href="https://bscscan.com/address/0x6Ad7b553D3622C7D1cCfe702E5a8BC7E22d9f848" target="_blank">View Wallet</a>
-      </div>
-    </div>
-
-    <div class="case-card">
-      <h3>LT-0002 · Pending Intake</h3>
-      <div class="case-meta">
-        <div><span class="label">Status:</span> <span class="status-pending">Pending Intake</span></div>
-        <div><span class="label">Chain:</span> TBD</div>
-      </div>
-      <p>Reserved for the next documented case.</p>
-      <div><span class="tag pending">Pending</span></div>
-    </div>
-
-    <div class="case-card">
-      <h3>LT-0003 · Pending Intake</h3>
-      <div class="case-meta">
-        <div><span class="label">Status:</span> <span class="status-pending">Pending Intake</span></div>
-        <div><span class="label">Chain:</span> TBD</div>
-      </div>
-      <p>Reserved for additional registry expansion.</p>
-      <div><span class="tag pending">Pending</span></div>
-    </div>
-
-  </div>
+<div id="out" class="output"></div>
 </div>
 
 <div class="panel">
-  <h2>📊 Evidence Classification</h2>
-  <ul>
-    <li><strong>Observed</strong> → Direct on-chain data or captured system output</li>
-    <li><strong>Corroborated</strong> → Supported by multiple independent references</li>
-    <li><strong>Inferred</strong> → Technical conclusion based on observed facts</li>
-    <li><strong>Pending Disclosure</strong> → Awaiting records, statements, or responses</li>
-    <li><strong>Disputed</strong> → Counterparty response or contradiction noted</li>
-  </ul>
-</div>
+<h2>📂 Active Case</h2>
 
-<div class="panel">
-  <h2>🧾 Human Statement Entry</h2>
-  <p>
-    LienTrace accepts structured human statements to document suspicious asset behavior,
-    failed swaps, unusual contract restrictions, proxy-only visibility, bot-driven trading,
-    value suppression, tax traps, and unresolved authenticity concerns.
-  </p>
+<p><strong>LT-0001:</strong> 1BTC Investigation</p>
+<p>Observed anomalies in liquidity, swaps, and contract transparency.</p>
 
-  <div class="case-card">
-    <p><strong>Suggested public statement format:</strong></p>
-    <p><strong>Statement ID:</strong> User-defined or pending</p>
-    <p><strong>Date (UTC):</strong> [enter date]</p>
-    <p><strong>Wallet Address:</strong> [enter wallet]</p>
-    <p><strong>Network:</strong> [BSC / ETH / Polygon / other]</p>
-    <hr>
-    <p><strong>Situation Summary</strong><br>
-    I received or interacted with the following token(s): token name, contract if known, and source.</p>
-    <p><strong>Issue Encountered</strong><br>
-    Describe high tax, blocked sale, unusual trading activity, proxy-only visibility, missing value representation, or other abnormal restrictions.</p>
-    <p><strong>Observations</strong><br>
-    Approximate transactions observed, notable bot behavior, associated wallets or contracts, and anything else visible.</p>
-    <p><strong>Questions / Concerns</strong><br>
-    Where is the authentic contract? Is the asset freely tradable? Is value being artificially controlled?</p>
-    <p><strong>Evidence Status</strong><br>
-    Observed / Corroborated / Inferred / Pending Disclosure</p>
-  </div>
-</div>
-
-<div class="panel">
-  <h2>🧾 Filing Workflow</h2>
-  <ol>
-    <li>Open case</li>
-    <li>Attach observable evidence</li>
-    <li>Classify findings</li>
-    <li>Issue public notice</li>
-    <li>Record rebuttal, disclosure, or silence</li>
-    <li>Mark resolved, unresolved, or archived</li>
-  </ol>
-</div>
-
-<div class="panel">
-  <h2>📄 Licensing</h2>
-  <p><strong>Code:</strong> MIT License<br>
-  <strong>Content:</strong> CC BY 4.0</p>
-</div>
-
-<div class="panel">
-  <h2>⚖️ Clarification</h2>
-  <p>
-    This system records claims, evidence references, and structured public notice.
-    It does not constitute legal judgment or legal advice.
-  </p>
-</div>
-
-<div class="footer">
-  © 2026 LienCoin Genesis Trust · LienTrace Public Registry
 </div>
 
 <script>
-document.getElementById("timestamp").textContent = new Date().toISOString();
+function gen(){
+let t=document.getElementById("input").value;
+document.getElementById("out").innerText=
+`🧾 Structured Testimony
 
-function generateStatement() {
-  const input = document.getElementById("userInput").value.trim();
+Date: ${new Date().toISOString()}
 
-  if (!input) {
-    document.getElementById("output").textContent =
-`Please describe what happened first.
+Summary:
+${t}
 
-Example:
-I received a token, tried to swap it, saw thousands of trades, a possible 85% tax, and only a proxy contract was visible.`;
-    return;
-  }
+Issue:
+Possible restricted liquidity or abnormal behavior.
 
-  const output =
-`🧾 LienTrace Structured Statement
+Questions:
+- What is the true asset?
+- Is it freely tradable?
+- Is value being controlled?
 
-Statement ID: Pending
-Date (UTC): ${new Date().toISOString()}
-
-Situation Summary:
-${input}
-
-Issue Encountered:
-The user reports abnormal token behavior that may include restricted trading, excessive sell tax, proxy-only visibility, missing value representation, unusual trade volume, or unresolved contract authenticity.
-
-Observations:
-- Further classification may be required
-- Potential bot-driven activity or liquidity irregularities may be present
-- Contract authenticity or direct tradability may need independent verification
-
-Questions / Concerns:
-- Where is the authentic underlying contract?
-- Is the asset freely tradable or effectively restricted?
-- Is value being artificially controlled or suppressed?
-- Is a proxy structure masking real ownership, liquidity, or redemption rights?
-
-Evidence Status:
-Observed / Inferred
-
-Public Notice:
-This statement is generated from user input for structured review and should be independently verified before reliance or market interaction.`;
-
-  document.getElementById("output").textContent = output;
+Status:
+Observed / Inferred`;
 }
 </script>
 
